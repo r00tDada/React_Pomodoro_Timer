@@ -8,7 +8,7 @@ class Pomodoro extends Component {
       minutes: 0,
       seconds: 0,
       disabled: [false, true, true],
-      msg: "Start the Pomodoro timer",
+      msg: "Start the Pomodoro timer !!",
     };
     this.minutesRef = React.createRef();
     this.secondsRef = React.createRef();
@@ -21,7 +21,7 @@ class Pomodoro extends Component {
   startTimer = () => {
     this.setState({
       disabled: [true, false, false],
-      msg: "Timer has Started",
+      msg: "Timer has Started !!",
     });
     this.interval = setInterval(() => {
       const { minutes, seconds } = this.state;
@@ -37,7 +37,7 @@ class Pomodoro extends Component {
             minutes: 0,
             seconds: 0,
             disabled: [false, true, true],
-            msg: "Times Up",
+            msg: "Times Up !!!!",
           });
           this.minutesRef.current.value = "";
           this.secondsRef.current.value = "";
@@ -55,7 +55,7 @@ class Pomodoro extends Component {
     clearInterval(this.interval);
     this.setState({
       disabled: [false, true, false],
-      msg: "Timer has been Paused",
+      msg: "Timer has been Paused !!",
     });
   };
 
@@ -64,7 +64,7 @@ class Pomodoro extends Component {
       minutes: 0,
       seconds: 0,
       disabled: [false, true, true],
-      msg: "Start the Pomodoro timer again",
+      msg: "Start the Pomodoro timer again !!",
     });
     this.minutesRef.current.value = "";
     this.secondsRef.current.value = "";

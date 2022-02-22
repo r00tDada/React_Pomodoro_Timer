@@ -21,7 +21,7 @@ label {
   color: white;
   font-weight: 600;
   padding: 10px 30px;
-  margin: 3px;
+  margin: 15px;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
@@ -37,7 +37,7 @@ button[disabled]{
   font-weight: 600;
   margin-top: 120px;
   padding-top: 20px;
-  color: white;
+  color: rgb(255, 199, 96);
 }
 
 .input_box {
@@ -52,5 +52,5 @@ button[disabled]{
 .msg {
     margin-top: 50px;
     font-size: 20px;
-    color:rgb(131, 83, 243);
+    color:rgb(255, 199, 96);
 }
