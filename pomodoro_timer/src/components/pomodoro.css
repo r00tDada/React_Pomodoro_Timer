@@ -1,0 +1,23 @@
+.title{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+label{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.button {
+    background-color: rgb(85, 230, 243); 
+    border: none;
+    color: black;
+    font-weight: 600;
+    padding: 10px 30px;
+    margin:3px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    
+}
