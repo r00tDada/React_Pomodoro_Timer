@@ -1,17 +1,24 @@
+body{
+    background-color: #222;
+}
+
 .title{
+    padding-top: 50px;
     font-size: 30px;
     font-weight: 800;
+    color: rgb(243, 85, 85);
 }
 
 label{
     font-size: 17px;
     font-weight: 600;
-}
+    color: rgb(131, 83, 243); 
+} 
 
 .button {
-    background-color: rgb(85, 230, 243); 
+    background-color: rgb(243, 85, 85); 
     border: none;
-    color: black;
+    color:white;
     font-weight: 600;
     padding: 10px 30px;
     margin:3px;
@@ -19,5 +26,13 @@ label{
     display: inline-block;
     font-size: 12px;
     cursor: pointer;
-    
+    border-radius:5px;
+}
+
+.timer {
+    font-size: 100px;
+    font-weight: 600;
+    margin-top: 150px;
+    padding-top: 20px;
+    color:white;
 }

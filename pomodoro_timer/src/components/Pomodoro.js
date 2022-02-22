@@ -5,7 +5,7 @@ const input_style = {
   width: "100px",
   padding: "5px",
   border: "solid 5px",
-  borderColor: "rgba(140, 241, 137, 0.966)",
+  borderColor: "rgb(131, 83, 243)",
   margin: "10px 30px 10px 10px",
 };
 
@@ -16,7 +16,6 @@ export class Pomodoro extends Component {
     this.state = {
       minutes: 0,
       seconds: 0,
-      disabled: false
     };
     this.minutesRef = React.createRef();
     this.secondsRef = React.createRef();
@@ -107,7 +106,7 @@ export class Pomodoro extends Component {
         </div>
         <br />
         <div>
-          <button disabled={this.state.disabled} onClick={this.startTimer} className="button">
+          <button onClick={this.startTimer} className="button">
             START
           </button>
           <button onClick={this.pauseTimer} className="button">
@@ -117,9 +116,9 @@ export class Pomodoro extends Component {
             RESET
           </button>
         </div>
-        <h1>
+        <div className="timer">
           {this.displayMinute(minutes)} : {this.displaySecond(seconds)}
-        </h1>
+        </div>
       </div>
     );
   }
