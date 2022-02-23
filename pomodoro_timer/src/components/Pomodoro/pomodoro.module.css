@@ -15,7 +15,15 @@ label {
   color: rgb(131, 83, 243);
 }
 
-.button {
+.input_box {
+  width: 100px;
+  padding: 5px;
+  border: solid 5px;
+  border-color: rgb(131, 83, 243);
+  margin: 10px 30px 10px 10px;
+}
+
+button {
   background-color: rgb(243, 85, 85);
   border: none;
   color: white;
@@ -28,10 +36,12 @@ label {
   cursor: pointer;
   border-radius: 5px;
 }
-button[disabled]{
-    opacity: 0.6;
-    cursor: not-allowed;
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
+
 .timer {
   font-size: 100px;
   font-weight: 600;
@@ -40,17 +50,8 @@ button[disabled]{
   color: rgb(255, 199, 96);
 }
 
-.input_box {
-  width: 100px;
-  padding: 5px;
-  border: solid 5px;
-  border-color: rgb(131, 83, 243);
-  margin: 10px 30px 10px 10px;
-}
-
-
 .msg {
-    margin-top: 50px;
-    font-size: 20px;
-    color:rgb(255, 199, 96);
+  margin-top: 50px;
+  font-size: 20px;
+  color: rgb(255, 199, 96);
 }
