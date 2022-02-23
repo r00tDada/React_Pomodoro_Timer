@@ -37,7 +37,7 @@ class Pomodoro extends Component {
             minutes: 0,
             seconds: 0,
             disabled: [false, true, true],
-            msg: "Times Up !!!!",
+            msg: "Times Up !!",
           });
           this.minutesRef.current.value = "";
           this.secondsRef.current.value = "";
@@ -70,21 +70,17 @@ class Pomodoro extends Component {
     this.secondsRef.current.value = "";
   };
 
-  displayMinute(minute) {
+  formatTimer(minute,second) {
     if (minute < 10) {
       minute = "0" + minute;
     }
-    return minute;
-  }
-
-  displaySecond(second) {
     if (second < 0) {
       second = "59";
     }
     if (second < 10 && second >= 0) {
       second = "0" + second;
     }
-    return second;
+    return `${minute} : ${second}`;
   }
 
   render() {
@@ -140,7 +136,7 @@ class Pomodoro extends Component {
           </button>
         </div>
         <div className="timer">
-          {this.displayMinute(minutes)} : {this.displaySecond(seconds)}
+          {this.formatTimer(minutes,seconds)}
         </div>
         <div className="msg">{msg}</div>
       </div>
