@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 import styles from "./pomodoro.module.css";
 import { formatTimer } from "./pomodoro.validation";
-import { resetForm} from "./pomodoro.helpers";
+import { resetForm } from "./pomodoro.helpers";
 class Pomodoro extends Component {
   constructor(props) {
     super(props);
     this.state = {
       minutes: 0,
       seconds: 0,
-      disabledStatus: {
-        start: 0,
-        pause: 1,
-        reset: 1,
-      },
+      disabledStatus: { start: 0, pause: 1, reset: 1 },
       msg: "Start the Pomodoro timer !!",
     };
   }
@@ -23,22 +19,14 @@ class Pomodoro extends Component {
       this.setState({
         minutes: 0,
         seconds: 0,
-        disabledStatus: {
-          start: 0,
-          pause: 1,
-          reset: 1,
-        },
+        disabledStatus: { start: 0, pause: 1, reset: 1},
         msg: "Pls enter valid minute or second !!",
       });
       resetForm("form");
       return;
     }
     this.setState({
-      disabledStatus: {
-        start: 1,
-        pause: 0,
-        reset: 0,
-      },
+      disabledStatus: {start: 1, pause: 0, reset: 0 },
       msg: "Timer has Started !!",
     });
 
@@ -54,11 +42,7 @@ class Pomodoro extends Component {
           this.setState({
             minutes: 0,
             seconds: 0,
-            disabledStatus: {
-              start: 0,
-              pause: 1,
-              reset: 1,
-            },
+            disabledStatus: { start: 0, pause: 1, reset: 1 },
             msg: "Times Up !!",
           });
           resetForm("form");
@@ -75,11 +59,7 @@ class Pomodoro extends Component {
   pauseTimer = () => {
     clearInterval(this.interval);
     this.setState({
-      disabledStatus: {
-        start: 0,
-        pause: 1,
-        reset: 0,
-      },
+      disabledStatus: { start: 0, pause: 1, reset: 0},
       msg: "Timer has been Paused !!",
     });
   };
@@ -89,11 +69,7 @@ class Pomodoro extends Component {
     this.setState({
       minutes: 0,
       seconds: 0,
-      disabledStatus: {
-        start: 0,
-        pause: 1,
-        reset: 1,
-      },
+      disabledStatus: { start: 0, pause: 1, reset: 1},
       msg: "Start the Pomodoro timer again !!",
     });
     resetForm("form");
@@ -107,17 +83,28 @@ class Pomodoro extends Component {
     const { minutes, seconds, disabledStatus, msg } = this.state;
     return (
       <div>
-        <div className={styles.title}>Pomodoro Timer</div> <br/><br/>
-        <form id = "form">
+        <div className={styles.title}>Pomodoro Timer</div> <br />
+        <br />
+        <form id="form">
           <label> Minutes</label>
           <input type="number" name="minutes" onChange={this.inputHandler} />
           <label>Seconds </label>
           <input type="number" name="seconds" onChange={this.inputHandler} />
-        </form> <br/>
+        </form>{" "}
+        <br />
         <div>
-          <button disabled={disabledStatus["start"]} onClick={this.startTimer}> START </button>
-          <button disabled={disabledStatus["pause"]} onClick={this.pauseTimer}> PAUSE </button>
-          <button disabled={disabledStatus["reset"]} onClick={this.resetTimer}> RESET </button>
+          <button disabled={disabledStatus["start"]} onClick={this.startTimer}>
+            {" "}
+            START{" "}
+          </button>
+          <button disabled={disabledStatus["pause"]} onClick={this.pauseTimer}>
+            {" "}
+            PAUSE{" "}
+          </button>
+          <button disabled={disabledStatus["reset"]} onClick={this.resetTimer}>
+            {" "}
+            RESET{" "}
+          </button>
         </div>
         <div className={styles.timer}>{formatTimer(minutes, seconds)}</div>
         <div className={styles.msg}>{msg}</div>
