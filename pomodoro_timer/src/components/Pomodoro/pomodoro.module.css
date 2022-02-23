@@ -15,7 +15,7 @@ label {
   color: rgb(131, 83, 243);
 }
 
-.input_box {
+input{
   width: 100px;
   padding: 5px;
   border: solid 5px;
