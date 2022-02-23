@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "./pomodoro.css";
+
+// 1. Not to use createRef in the input box 
+// 2. disabled value should be the object => status
+// 3. Write down the validation folder
 class Pomodoro extends Component {
   constructor(props) {
     super(props);
@@ -7,9 +11,14 @@ class Pomodoro extends Component {
     this.state = {
       minutes: 0,
       seconds: 0,
+    //   disabledStatus: {
+    //       "start" : 
+
+    //   }
       disabled: [false, true, true],
       msg: "Start the Pomodoro timer !!",
     };
+    // 2. To eliminate this
     this.minutesRef = React.createRef();
     this.secondsRef = React.createRef();
   }
@@ -19,6 +28,16 @@ class Pomodoro extends Component {
   };
 
   startTimer = () => {
+    const { minutes, seconds} = this.state;
+    if (minutes < 0 || seconds < 0 || seconds >= 60) {
+      this.setState({
+        minutes:0,
+        seconds:0,
+        disabled: [false, true, true],
+        msg: "Pls enter valid minute or second !!",
+      });
+      return;
+    }
     this.setState({
       disabled: [true, false, false],
       msg: "Timer has Started !!",
@@ -29,8 +48,9 @@ class Pomodoro extends Component {
         this.setState((prevState) => ({
           seconds: prevState.seconds - 1,
         }));
+
       }
-      if (seconds == 0) {
+      else if (seconds == 0) {
         if (minutes == 0) {
           clearInterval(this.interval);
           this.setState({
@@ -39,8 +59,6 @@ class Pomodoro extends Component {
             disabled: [false, true, true],
             msg: "Times Up !!",
           });
-          this.minutesRef.current.value = "";
-          this.secondsRef.current.value = "";
         } else {
           this.setState((prevState) => ({
             minutes: prevState.minutes - 1,
@@ -60,6 +78,7 @@ class Pomodoro extends Component {
   };
 
   resetTimer = () => {
+    clearInterval(this.interval);
     this.setState({
       minutes: 0,
       seconds: 0,
@@ -70,7 +89,7 @@ class Pomodoro extends Component {
     this.secondsRef.current.value = "";
   };
 
-  formatTimer(minute,second) {
+  formatTimer(minute, second) {
     if (minute < 10) {
       minute = "0" + minute;
     }
@@ -136,8 +155,10 @@ class Pomodoro extends Component {
           </button>
         </div>
         <div className="timer">
-          {this.formatTimer(minutes,seconds)}
-        </div>
+            {/* 1. Declare a function what to print */}
+            {(minutes <0 || seconds <0 || seconds>60) && <div>00 : 00</div>}
+            {minutes>=0 && seconds>=0 && seconds<60 &&
+                this.formatTimer(minutes, seconds)}</div>
         <div className="msg">{msg}</div>
       </div>
     );
