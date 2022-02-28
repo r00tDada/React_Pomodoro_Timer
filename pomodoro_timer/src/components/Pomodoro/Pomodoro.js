@@ -19,16 +19,18 @@ class Pomodoro extends Component {
       this.setState({
         minutes: 0,
         seconds: 0,
-        disabledStatus: { start: 0, pause: 1, reset: 1},
+        disabledStatus: { start: 0, pause: 1, reset: 1 },
         msg: "Pls enter valid minute or second !!",
       });
       resetForm("form");
       return;
     }
     this.setState({
-      disabledStatus: {start: 1, pause: 0, reset: 0 },
+      disabledStatus: { start: 1, pause: 0, reset: 0 },
       msg: "Timer has Started !!",
     });
+
+    // this can be put in the helper function.
 
     this.interval = setInterval(() => {
       const { minutes, seconds } = this.state;
@@ -59,7 +61,7 @@ class Pomodoro extends Component {
   pauseTimer = () => {
     clearInterval(this.interval);
     this.setState({
-      disabledStatus: { start: 0, pause: 1, reset: 0},
+      disabledStatus: { start: 0, pause: 1, reset: 0 },
       msg: "Timer has been Paused !!",
     });
   };
@@ -69,7 +71,7 @@ class Pomodoro extends Component {
     this.setState({
       minutes: 0,
       seconds: 0,
-      disabledStatus: { start: 0, pause: 1, reset: 1},
+      disabledStatus: { start: 0, pause: 1, reset: 1 },
       msg: "Start the Pomodoro timer again !!",
     });
     resetForm("form");
@@ -90,20 +92,17 @@ class Pomodoro extends Component {
           <input type="number" name="minutes" onChange={this.inputHandler} />
           <label>Seconds </label>
           <input type="number" name="seconds" onChange={this.inputHandler} />
-        </form>{" "}
+        </form>
         <br />
         <div>
           <button disabled={disabledStatus["start"]} onClick={this.startTimer}>
-            {" "}
-            START{" "}
+            START
           </button>
           <button disabled={disabledStatus["pause"]} onClick={this.pauseTimer}>
-            {" "}
-            PAUSE{" "}
+            PAUSE
           </button>
           <button disabled={disabledStatus["reset"]} onClick={this.resetTimer}>
-            {" "}
-            RESET{" "}
+            RESET
           </button>
         </div>
         <div className={styles.timer}>{formatTimer(minutes, seconds)}</div>
